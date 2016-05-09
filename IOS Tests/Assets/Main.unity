@@ -155,6 +155,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 830200828}
   - 114: {fileID: 830200829}
+  - 132: {fileID: 830200830}
   m_Layer: 0
   m_Name: Page 3
   m_TagString: Untagged
@@ -186,6 +187,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageNumber: 3
+--- !u!132 &830200830
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 830200827}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Page 3
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 1, y: 250}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 75
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279887665
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &873877563
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +264,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 929743464}
   - 114: {fileID: 929743465}
+  - 132: {fileID: 929743466}
   m_Layer: 0
   m_Name: Page 2
   m_TagString: Untagged
@@ -271,6 +296,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageNumber: 2
+--- !u!132 &929743466
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929743463}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Page 2
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 200, y: 200}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 92c8ad748803a4858adda1becbce1c98, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 75
+  m_FontStyle: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4293219106
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1289594445
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +328,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1289594446}
   - 114: {fileID: 1289594447}
+  - 132: {fileID: 1289594448}
   m_Layer: 0
   m_Name: Page 4
   m_TagString: Untagged
@@ -311,6 +360,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageNumber: 4
+--- !u!132 &1289594448
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1289594445}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Page 4
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 30, y: 200}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 40
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279870975
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1350817673
 GameObject:
   m_ObjectHideFlags: 0
@@ -320,6 +392,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1350817674}
   - 114: {fileID: 1350817675}
+  - 132: {fileID: 1350817676}
   m_Layer: 0
   m_Name: Page 1
   m_TagString: Untagged
@@ -351,6 +424,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageNumber: 1
+--- !u!132 &1350817676
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1350817673}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Page 1
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 200, y: 200}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 92c8ad748803a4858adda1becbce1c98, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 77
+  m_FontStyle: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4290512349
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1424391438
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +456,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1424391439}
   - 114: {fileID: 1424391440}
+  - 132: {fileID: 1424391441}
   m_Layer: 0
   m_Name: Page 5
   m_TagString: Untagged
@@ -391,6 +488,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageNumber: 5
+--- !u!132 &1424391441
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1424391438}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Page 5
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 20, y: 277}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 30
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279256308
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1900936218
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,8 +518,10 @@ GameObject:
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 1900936219}
+  - 224: {fileID: 1900936219}
   - 114: {fileID: 1900936220}
+  - 222: {fileID: 1900936222}
+  - 132: {fileID: 1900936221}
   m_Layer: 0
   m_Name: Starting Page 0
   m_TagString: Untagged
@@ -407,8 +529,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1900936219
-Transform:
+--- !u!224 &1900936219
+RectTransform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -419,6 +541,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 873877565}
   m_RootOrder: 0
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1900936220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,6 +558,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageNumber: 0
+--- !u!132 &1900936221
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900936218}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Starting Page
+  m_Anchor: 0
+  m_Alignment: 0
+  m_PixelOffset: {x: 30, y: 250}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 12800000, guid: 92c8ad748803a4858adda1becbce1c98, type: 3}
+  m_Material: {fileID: 0}
+  m_FontSize: 90
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294677012
+  m_PixelCorrect: 1
+  m_RichText: 1
+--- !u!222 &1900936222
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1900936218}
 --- !u!1 &2141111702
 GameObject:
   m_ObjectHideFlags: 0
