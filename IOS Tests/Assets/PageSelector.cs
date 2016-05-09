@@ -53,7 +53,7 @@ public class PageSelector : MonoBehaviour {
 
     private void HorizontalFlick_Flicked(object sender, System.EventArgs e)
     {
-        if (horizontalFlick.ScreenFlickVector.x < 0)
+        if (horizontalFlick.ScreenFlickVector.x > 0)
         {
             SelectPage(activePage - 1);
         }
