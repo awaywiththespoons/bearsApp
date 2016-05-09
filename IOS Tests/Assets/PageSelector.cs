@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TouchScript.Gestures;
 
+[RequireComponent(typeof(FlickGesture))]
 public class PageSelector : MonoBehaviour {
 
     private Dictionary<int, Page> pages = new Dictionary<int, Page>();
+    private FlickGesture horizontalFlick;
+    private int activePage; 
 
     public void SelectPage(int pageNumber)
     {
@@ -18,6 +22,8 @@ public class PageSelector : MonoBehaviour {
 
         print("Setting current page to '" + pageNumber + "'.");
 
+        activePage = pageNumber; 
+
         foreach (Page other in pages.Values)
         {
             other.gameObject.SetActive(other.PageNumber == pageNumber); 
@@ -26,6 +32,10 @@ public class PageSelector : MonoBehaviour {
 
     void Awake()
     {
+        horizontalFlick = GetComponent<FlickGesture>();
+
+        horizontalFlick.Flicked += HorizontalFlick_Flicked;
+
         foreach (Page page in GetComponentsInChildren<Page>())
         {
             if (pages.ContainsKey(page.PageNumber) == true)
@@ -41,8 +51,20 @@ public class PageSelector : MonoBehaviour {
         }
     }
 
-	// Use this for initialization
-	void Start () {
+    private void HorizontalFlick_Flicked(object sender, System.EventArgs e)
+    {
+        if (horizontalFlick.ScreenFlickVector.x < 0)
+        {
+            SelectPage(activePage - 1);
+        }
+        else
+        {
+            SelectPage(activePage + 1);
+        }
+    }
+
+    // Use this for initialization
+    void Start () {
 	
 	}
 	
