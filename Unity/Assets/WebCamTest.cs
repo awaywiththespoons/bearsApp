@@ -45,7 +45,7 @@ public class WebCamTest : MonoBehaviour {
             webCamTexture.Stop();
         }
 
-        if (Input.GetButtonDown("Jump") == true)
+        //if (Input.GetButtonDown("Jump") == true)
         {
             TryProcessImage(UnityEngine.Random.Range(0, Sources.Length)); 
         }

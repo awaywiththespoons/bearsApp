@@ -254,7 +254,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 2a85405a2245de945ba869b3714c5bef, type: 3}
   - {fileID: 2800000, guid: f1209e2401dd41b4bb477bc86efee23e, type: 3}
   CurrentTexture: {fileID: 0}
-  UseWebCam: 0
+  UseWebCam: 1
 --- !u!23 &782122774
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ Transform:
   m_GameObject: {fileID: 782122772}
   m_LocalRotation: {x: -0.00000016292068, y: -0.00000016292068, z: -1, w: 2.654315e-14}
   m_LocalPosition: {x: 0, y: 1.01, z: 0}
-  m_LocalScale: {x: 20, y: 10, z: 1}
+  m_LocalScale: {x: 13, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
