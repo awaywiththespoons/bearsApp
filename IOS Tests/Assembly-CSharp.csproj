@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ImageScanner.cs" />
      <Compile Include="Assets\Page.cs" />
      <Compile Include="Assets\PageSelector.cs" />
      <Compile Include="Assets\TouchScript\Examples\Camera\Scripts\CameraController.cs" />
