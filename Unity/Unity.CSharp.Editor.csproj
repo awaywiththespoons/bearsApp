@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{845B2C80-F143-3BCF-70A5-A4E01799690A}</ProjectGuid>
+    <ProjectGuid>{27D29A4B-FDE7-B1BD-E226-B13A243BCA00}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -106,66 +106,21 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
-    <Reference Include="OSCsharp">
-      <HintPath>Assets\TouchScript\Modules\TUIO\Libraries\OSCsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="TUIOsharp">
-      <HintPath>Assets\TouchScript\Modules\TUIO\Libraries\TUIOsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="ShapeMatch">
-      <HintPath>Assets\Libraries\ShapeMatch.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge">
-      <HintPath>Assets\Libraries\AForge.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Math">
-      <HintPath>Assets\Libraries\AForge.Math.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Imaging">
-      <HintPath>Assets\Libraries\AForge.Imaging.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="IOS Tests.CSharp.csproj">
-      <Project>{D6D80362-E0A0-9C05-987B-E1354F2D215E}</Project>
-      <Name>IOS Tests.CSharp</Name>
+    <ProjectReference Include="Unity.CSharp.csproj">
+      <Project>{4123F183-8F61-27AE-EA27-294DDE0CC7EB}</Project>
+      <Name>Unity.CSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\TouchScript\Editor\Behaviors\Visualizer\TouchVisualizerEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\Base\PinnedTransformGestureBaseEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\Base\TransformGestureBaseEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\FlickGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\GestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\LongPressGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\PinnedTransformGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\PressGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\ReleaseGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\ScreenTransformGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\TapGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Gestures\TransformGestureEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\InputSources\InputSourceEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\InputSources\MobileInputEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\InputSources\MouseInputEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\InputSources\StandardInputEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Layers\CameraLayer2DEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Layers\FullscreenLayerEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Layers\UILayerEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\TouchManagerEditor.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Utils\GUIElements.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\NullToggleDrawer.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\TagsDrawer.cs" />
-    <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\ToggleLeftDrawer.cs" />
-    <Compile Include="Assets\TouchScript\Modules\TUIO\Editor\InputSources\TuioInputEditor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Editor\OpenCVForUnityMenuItem.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Editor\WSA_BuildPostprocessor.cs" />
+    <Compile Include="Assets\OpenCVForUnity\Editor\iOS_BuildPostprocessor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
-    <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
-    <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
-    <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
-    <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
-    <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
-    <None Include="Assets\TouchScript\license.txt" />
+    <None Include="Assets\StreamingAssets\haarcascade_frontalface_alt.xml" />
+    <None Include="Assets\StreamingAssets\lbpcascade_frontalface.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
