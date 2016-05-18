@@ -119,6 +119,18 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="ShapeMatch">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/ShapeMatch.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Math">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Math.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Imaging">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Imaging.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
