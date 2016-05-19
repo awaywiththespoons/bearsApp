@@ -45,6 +45,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_BoneCreation.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_CreateControls.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_CreatePolygonFromSprite.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_EditSkinWeightsEditor.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Editor.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_FFD.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_FFDLineDisplayEditor.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_GlobalControlEditor.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_HiddenBoneEditor.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_IKHandleEditor.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Selection.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_SkinCluster.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Skinning.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_SortingLayerEditor.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Spline.cs" />
      <Compile Include="Assets\TouchScript\Editor\Behaviors\Visualizer\TouchVisualizerEditor.cs" />
      <Compile Include="Assets\TouchScript\Editor\Gestures\Base\PinnedTransformGestureBaseEditor.cs" />
      <Compile Include="Assets\TouchScript\Editor\Gestures\Base\TransformGestureBaseEditor.cs" />
@@ -71,7 +86,10 @@
      <Compile Include="Assets\TouchScript\Editor\Utils\PropertyDrawers\ToggleLeftDrawer.cs" />
      <Compile Include="Assets\TouchScript\Modules\TUIO\Editor\InputSources\TuioInputEditor.cs" />
      <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
+     <None Include="Assets\Puppet2D\Shaders\BlackAndWhite.shader" />
      <None Include="Assets\TouchScript\license.txt" />
+     <None Include="Assets\Puppet2D\Shaders\VertColor.shader" />
+     <None Include="Assets\Puppet2D\Shaders\unlitTransparentDouble.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
@@ -101,6 +119,18 @@
  <Reference Include="UnityEditor.TreeEditor">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
+ <Reference Include="AForge">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Imaging">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Imaging.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Math">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Math.dll</HintPath>
+ </Reference>
+ <Reference Include="ShapeMatch">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/ShapeMatch.dll</HintPath>
+ </Reference>
  <Reference Include="OSCsharp">
  <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/TouchScript/Modules/TUIO/Libraries/OSCsharp.dll</HintPath>
  </Reference>
@@ -118,18 +148,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="ShapeMatch">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/ShapeMatch.dll</HintPath>
- </Reference>
- <Reference Include="AForge">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.dll</HintPath>
- </Reference>
- <Reference Include="AForge.Math">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Math.dll</HintPath>
- </Reference>
- <Reference Include="AForge.Imaging">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Imaging.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
  <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

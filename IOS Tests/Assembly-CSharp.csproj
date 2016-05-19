@@ -48,6 +48,56 @@
      <Compile Include="Assets\ImageScanner.cs" />
      <Compile Include="Assets\Page.cs" />
      <Compile Include="Assets\PageSelector.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_FFDLineDisplay.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_FFDStoreData.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_GlobalControl.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_HiddenBone.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_IKHandle.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_ParentControl.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SkinnedVertices.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SortingLayer.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SplineControl.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_VertHandler.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\DelaunayTriangle.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFront.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFrontNode.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweep.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepBasin.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepConstraint.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepContext.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepDebugContext.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepEdgeEvent.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\DTSweepPointComparator.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\PointOnEdgeException.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\ITriangulatable.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Orientation.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\P2T.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Contour.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\Polygon.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonPoint.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonSet.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Polygon\PolygonUtil.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\ConstrainedPointSet.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Sets\PointSet.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationAlgorithm.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationConstraint.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationContext.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationDebugContext.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationMode.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\TriangulationPoint.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Util\PointGenerator.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Util\PolygonGenerator.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Util\TriangulationUtil.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\FixedArray3.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\FixedBitArray3.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\MathUtil.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
      <Compile Include="Assets\TouchScript\Examples\Camera\Scripts\CameraController.cs" />
      <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Board.cs" />
      <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Exclusive.cs" />
@@ -140,8 +190,12 @@
      <Compile Include="Assets\TouchScript\Scripts\Utils\TimedSequence.cs" />
      <Compile Include="Assets\TouchScript\Scripts\Utils\TouchUtils.cs" />
      <Compile Include="Assets\TouchScript\Scripts\Utils\TransformUtils.cs" />
+     <Compile Include="Assets\accrossScreen.cs" />
      <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
+     <None Include="Assets\Puppet2D\Shaders\BlackAndWhite.shader" />
      <None Include="Assets\TouchScript\license.txt" />
+     <None Include="Assets\Puppet2D\Shaders\VertColor.shader" />
+     <None Include="Assets\Puppet2D\Shaders\unlitTransparentDouble.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
@@ -153,23 +207,23 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
+ <Reference Include="AForge">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Imaging">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Imaging.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Math">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Math.dll</HintPath>
+ </Reference>
+ <Reference Include="ShapeMatch">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/ShapeMatch.dll</HintPath>
+ </Reference>
  <Reference Include="OSCsharp">
  <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/TouchScript/Modules/TUIO/Libraries/OSCsharp.dll</HintPath>
  </Reference>
  <Reference Include="TUIOsharp">
  <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/TouchScript/Modules/TUIO/Libraries/TUIOsharp.dll</HintPath>
- </Reference>
- <Reference Include="ShapeMatch">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/ShapeMatch.dll</HintPath>
- </Reference>
- <Reference Include="AForge">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.dll</HintPath>
- </Reference>
- <Reference Include="AForge.Math">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Math.dll</HintPath>
- </Reference>
- <Reference Include="AForge.Imaging">
- <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Imaging.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
