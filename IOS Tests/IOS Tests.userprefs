@@ -1,0 +1,17 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/accrossScreen.cs">
+    <Files>
+      <File FileName="Assets/accrossScreen.cs" Line="12" Column="2" />
+      <File FileName="Assets/Page.cs" Line="1" Column="1" />
+      <File FileName="Assets/PageSelector.cs" Line="1" Column="1" />
+      <File FileName="Assets/backAccrossScreen.cs" Line="18" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/beccarose/Documents/GitHub/IOS Tests/Assets/accrossScreen.cs" line="21" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

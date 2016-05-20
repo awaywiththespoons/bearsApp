@@ -191,6 +191,7 @@
      <Compile Include="Assets\TouchScript\Scripts\Utils\TouchUtils.cs" />
      <Compile Include="Assets\TouchScript\Scripts\Utils\TransformUtils.cs" />
      <Compile Include="Assets\accrossScreen.cs" />
+     <Compile Include="Assets\backAccrossScreen.cs" />
      <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
      <None Include="Assets\Puppet2D\Shaders\BlackAndWhite.shader" />
      <None Include="Assets\TouchScript\license.txt" />
