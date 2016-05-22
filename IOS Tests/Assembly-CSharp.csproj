@@ -98,6 +98,7 @@
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
+     <Compile Include="Assets\RightSWIMbigfish.cs" />
      <Compile Include="Assets\TouchScript\Examples\Camera\Scripts\CameraController.cs" />
      <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Board.cs" />
      <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Exclusive.cs" />
@@ -192,6 +193,9 @@
      <Compile Include="Assets\TouchScript\Scripts\Utils\TransformUtils.cs" />
      <Compile Include="Assets\accrossScreen.cs" />
      <Compile Include="Assets\backAccrossScreen.cs" />
+     <Compile Include="Assets\backgroundMove.cs" />
+     <Compile Include="Assets\moveLEFT.cs" />
+     <Compile Include="Assets\swimUP.cs" />
      <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
      <None Include="Assets\Puppet2D\Shaders\BlackAndWhite.shader" />
      <None Include="Assets\TouchScript\license.txt" />
