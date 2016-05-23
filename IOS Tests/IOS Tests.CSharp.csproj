@@ -184,6 +184,9 @@
     <Compile Include="Assets\TouchScript\Scripts\Utils\TransformUtils.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Libraries\AForge.Imaging.xml" />
+    <None Include="Assets\Libraries\AForge.Math.xml" />
+    <None Include="Assets\Libraries\AForge.xml" />
     <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
     <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
     <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />

@@ -106,23 +106,23 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
+    <Reference Include="AForge">
+      <HintPath>Assets\Libraries\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Imaging">
+      <HintPath>Assets\Libraries\AForge.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Math">
+      <HintPath>Assets\Libraries\AForge.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="ShapeMatch">
+      <HintPath>Assets\Libraries\ShapeMatch.dll</HintPath>
+    </Reference>
     <Reference Include="OSCsharp">
       <HintPath>Assets\TouchScript\Modules\TUIO\Libraries\OSCsharp.dll</HintPath>
     </Reference>
     <Reference Include="TUIOsharp">
       <HintPath>Assets\TouchScript\Modules\TUIO\Libraries\TUIOsharp.dll</HintPath>
-    </Reference>
-    <Reference Include="ShapeMatch">
-      <HintPath>Assets\Libraries\ShapeMatch.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge">
-      <HintPath>Assets\Libraries\AForge.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Math">
-      <HintPath>Assets\Libraries\AForge.Math.dll</HintPath>
-    </Reference>
-    <Reference Include="AForge.Imaging">
-      <HintPath>Assets\Libraries\AForge.Imaging.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +159,9 @@
     <Compile Include="Assets\TouchScript\Modules\TUIO\Editor\InputSources\TuioInputEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Libraries\AForge.Imaging.xml" />
+    <None Include="Assets\Libraries\AForge.Math.xml" />
+    <None Include="Assets\Libraries\AForge.xml" />
     <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
     <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
     <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />

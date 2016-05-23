@@ -6,7 +6,7 @@ using System;
 
 public class ImageScanner : MonoBehaviour
 {
-    //ShapeMatch.ShapeMatcher matcher = new ShapeMatch.ShapeMatcher(); 
+    ShapeMatch.ShapeMatcher matcher = new ShapeMatch.ShapeMatcher(); 
 
     WebCamTexture webCamTexture;
     byte[] colorBytes = new byte[0]; 
@@ -86,16 +86,16 @@ public class ImageScanner : MonoBehaviour
             {
                 CurrentTexture = TestImage;
 
-                //if (colorBytes.Length != (TestImage.width * 4) * TestImage.height)
-                //{
-                //    colorBytes = new byte[(TestImage.width * 4) * TestImage.height];
-                //}
+                if (colorBytes.Length != (TestImage.width * 4) * TestImage.height)
+                {
+                    colorBytes = new byte[(TestImage.width * 4) * TestImage.height];
+                }
 
-                //Color32[] colorData = TestImage.GetPixels32();
+                Color32[] colorData = TestImage.GetPixels32();
 
-                //GetArrayBytes(colorData, TestImage.width * TestImage.height, colorBytes);
+                GetArrayBytes(colorData, TestImage.width * TestImage.height, colorBytes);
 
-                //matcher.Match(CurrentTexture.width, CurrentTexture.height, colorBytes);
+                matcher.Match(CurrentTexture.width, CurrentTexture.height, colorBytes);
             }
             else
             {
@@ -106,21 +106,21 @@ public class ImageScanner : MonoBehaviour
                     return;
                 }
 
-                //if (colorBytes.Length != (webCamTexture.width * 4) * webCamTexture.height)
-                //{
-                //    colorBytes = new byte[(webCamTexture.width * 4) * webCamTexture.height];
-                //}
+                if (colorBytes.Length != (webCamTexture.width * 4) * webCamTexture.height)
+                {
+                    colorBytes = new byte[(webCamTexture.width * 4) * webCamTexture.height];
+                }
 
-                //Color32[] colorData = webCamTexture.GetPixels32();
+                Color32[] colorData = webCamTexture.GetPixels32();
 
-                //GetArrayBytes(colorData, webCamTexture.width * webCamTexture.height, colorBytes);
+                GetArrayBytes(colorData, webCamTexture.width * webCamTexture.height, colorBytes);
 
-                //matcher.Match(CurrentTexture.width, CurrentTexture.height, colorBytes);
+                matcher.Match(CurrentTexture.width, CurrentTexture.height, colorBytes);
             }
 
             if (DebugText != null)
             {
-                DebugText.text = "OK"; // "Count: " + matcher.Circles.Count.ToString();
+                DebugText.text = "Count: " + matcher.Circles.Count.ToString();
             }
         }
         catch (Exception ex)
