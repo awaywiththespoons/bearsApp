@@ -142,16 +142,31 @@
      <Compile Include="Assets\TouchScript\Scripts\Utils\TransformUtils.cs" />
      <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
      <None Include="Assets\TouchScript\license.txt" />
+     <None Include="Assets\Libraries\AForge.Math.xml" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
+     <None Include="Assets\Libraries\AForge.Imaging.xml" />
      <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
      <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
+     <None Include="Assets\Libraries\AForge.xml" />
      <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Imaging">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Imaging.dll</HintPath>
+ </Reference>
+ <Reference Include="AForge.Math">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/AForge.Math.dll</HintPath>
+ </Reference>
+ <Reference Include="ShapeMatch">
+ <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/Libraries/ShapeMatch.dll</HintPath>
  </Reference>
  <Reference Include="OSCsharp">
  <HintPath>/Users/beccarose/Documents/GitHub/IOS Tests/Assets/TouchScript/Modules/TUIO/Libraries/OSCsharp.dll</HintPath>
