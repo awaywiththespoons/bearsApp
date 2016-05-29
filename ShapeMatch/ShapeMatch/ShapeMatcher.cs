@@ -26,16 +26,17 @@ namespace ShapeMatch
     {
         public readonly List<Circle> Circles = new List<Circle>(); 
 
-        public void Match(int width, int height, byte[] data)
+        public void Match(int width, int height, IntPtr data)
         {
 
             Circles.Clear();
 
-            GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+            //GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+            // handle.AddrOfPinnedObject()
 
             try
             {
-                using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width * 4, PixelFormat.Format32bppArgb))
+                using (UnmanagedImage bitmapData = new UnmanagedImage(data, width, height, width * 4, PixelFormat.Format32bppArgb))
                 //using (Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb))
                 {
                     // lock image
@@ -95,7 +96,7 @@ namespace ShapeMatch
             }
             finally
             {
-                handle.Free();
+                //handle.Free();
             }
 
         }

@@ -127,7 +127,7 @@ namespace AForge.Imaging
         /// and correspond to unmanaged memory buffer. If some attributes are specified incorrectly,
         /// this may lead to exceptions working with the unmanaged memory.</note></para></remarks>
         /// 
-        public UnmanagedImage( IntPtr imageData, int width, int height, int stride, PixelFormat pixelFormat )
+        public UnmanagedImage(IntPtr imageData, int width, int height, int stride, PixelFormat pixelFormat )
         {
             this.imageData   = imageData;
             this.width       = width;
