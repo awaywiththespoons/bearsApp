@@ -134,7 +134,7 @@ public class ImageScanner : MonoBehaviour
 
             if (DebugText != null)
             {
-                DebugText.text = "Count: " + matcher.Circles.Count.ToString();
+                DebugText.text = matcher.Circles.Count.ToString();
             }
         }
         catch (Exception ex)
