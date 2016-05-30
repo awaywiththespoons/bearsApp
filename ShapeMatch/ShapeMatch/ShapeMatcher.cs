@@ -43,7 +43,7 @@ namespace ShapeMatch
                 Grayscale grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
 
                 using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width * 4, PixelFormat.Format32bppArgb))
-                //using (UnmanagedImage grayscaleImage = grayscale.Apply(bitmapData))
+                using (UnmanagedImage grayscaleImage = grayscale.Apply(bitmapData))
                 //using (Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb))
                 {
                     // lock image
