@@ -67,10 +67,10 @@ namespace ShapeMatch
                     //colorFilter.FillOutsideRange = true;
                     //colorFilter.ApplyInPlace(bitmapData);
 
-                    System.Drawing.Color cornerColor = bitmapData.GetPixel(0, 0);
+                    //System.Drawing.Color cornerColor = bitmapData.GetPixel(0, 0);
 
-                    Threshold threshold = new Threshold(cornerColor.R + 10);
-                    threshold.ApplyInPlace(grayscaleImage);
+                    //Threshold threshold = new Threshold(cornerColor.R + 10);
+                    //threshold.ApplyInPlace(grayscaleImage);
 
                     //// create filter
                     //Erosion erosion = new Erosion();
