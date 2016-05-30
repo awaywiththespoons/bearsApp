@@ -97,14 +97,19 @@ public class ImageScanner : MonoBehaviour
             {
                 CurrentTexture = TestImage;
 
-                if (colorBytes.Length != (TestImage.width * 4) * TestImage.height)
+                //if (colorBytes.Length != (TestImage.width * 4) * TestImage.height)
+                //{
+                //    colorBytes = new byte[(TestImage.width * 4) * TestImage.height];
+                //}
+
+                if (colorBytes.Length != TestImage.width * TestImage.height)
                 {
-                    colorBytes = new byte[(TestImage.width * 4) * TestImage.height];
+                    colorBytes = new byte[TestImage.width * TestImage.height];
                 }
 
                 Color32[] colorData = TestImage.GetPixels32();
 
-                GetArrayBytes(colorData, TestImage.width * TestImage.height, colorBytes);
+                GetArrayBytes_Greyscale(colorData, TestImage.width * TestImage.height, colorBytes);
 
                 //handle = GCHandle.Alloc(colorBytes, GCHandleType.Pinned);
 
@@ -119,14 +124,19 @@ public class ImageScanner : MonoBehaviour
                     return;
                 }
 
-                if (colorBytes.Length != (webCamTexture.width * 4) * webCamTexture.height)
+                //if (colorBytes.Length != (webCamTexture.width * 4) * webCamTexture.height)
+                //{
+                //    colorBytes = new byte[(webCamTexture.width * 4) * webCamTexture.height];
+                //}
+
+                if (colorBytes.Length != webCamTexture.width * webCamTexture.height)
                 {
-                    colorBytes = new byte[(webCamTexture.width * 4) * webCamTexture.height];
+                    colorBytes = new byte[webCamTexture.width * webCamTexture.height];
                 }
 
                 Color32[] colorData = webCamTexture.GetPixels32();
 
-                GetArrayBytes(colorData, webCamTexture.width * webCamTexture.height, colorBytes);
+                GetArrayBytes_Greyscale(colorData, webCamTexture.width * webCamTexture.height, colorBytes);
 
                 //handle = GCHandle.Alloc(colorBytes, GCHandleType.Pinned);
 
@@ -157,6 +167,19 @@ public class ImageScanner : MonoBehaviour
                 CameraTest.material.mainTexture = CurrentTexture;
             }
         }
+    }
+
+    private static void GetArrayBytes_Greyscale(Color32[] array, int count, byte[] bytes)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            bytes[i] = Max(array[i]); 
+        }
+    }
+
+    private static byte Max(Color32 color32)
+    {
+        return (byte)Mathf.Max(color32.r, color32.g, color32.b); 
     }
 
     private static void GetArrayBytes<T>(T[] array, int count, byte[] bytes)

@@ -40,10 +40,11 @@ namespace ShapeMatch
             try
             {
 
-                Grayscale grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
+                //Grayscale grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
 
-                using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width * 4, PixelFormat.Format32bppArgb))
-                using (UnmanagedImage grayscaleImage = grayscale.Apply(bitmapData))
+                //using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width * 4, PixelFormat.Format32bppArgb))
+                using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width, PixelFormat.Format8bppIndexed))
+                //using (UnmanagedImage grayscaleImage = grayscale.Apply(bitmapData))
                 //using (Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb))
                 {
                     // lock image
@@ -71,7 +72,7 @@ namespace ShapeMatch
                     //System.Drawing.Color cornerColor = bitmapData.GetPixel(0, 0);
 
                     //Threshold threshold = new Threshold(cornerColor.R + 10);
-                    //threshold.ApplyInPlace(grayscaleImage);
+                    //threshold.ApplyInPlace(bitmapData);
 
                     //// create filter
                     //Erosion erosion = new Erosion();
@@ -95,7 +96,7 @@ namespace ShapeMatch
                     blobCounter.MaxHeight = 62;
 
                     //blobCounter.ProcessImage(grayscaleImage);
-                    blobCounter.ProcessImage(bitmapData);                    
+                    blobCounter.ProcessImage(bitmapData);
 
                     Blob[] blobs = blobCounter.GetObjectsInformation();
 
