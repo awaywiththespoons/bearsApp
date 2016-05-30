@@ -156,11 +156,11 @@ namespace AForge.Imaging.Filters
             BlueCoefficient  = cb;
 
             // initialize format translation dictionary
-            formatTranslations[PixelFormat.Format24bppRgb]  = PixelFormat.Format8bppIndexed;
-            formatTranslations[PixelFormat.Format32bppRgb]  = PixelFormat.Format8bppIndexed;
+            //formatTranslations[PixelFormat.Format24bppRgb]  = PixelFormat.Format8bppIndexed;
+           // formatTranslations[PixelFormat.Format32bppRgb]  = PixelFormat.Format8bppIndexed;
             formatTranslations[PixelFormat.Format32bppArgb] = PixelFormat.Format8bppIndexed;
-            formatTranslations[PixelFormat.Format48bppRgb]  = PixelFormat.Format16bppGrayScale;
-            formatTranslations[PixelFormat.Format64bppArgb] = PixelFormat.Format16bppGrayScale;
+            //formatTranslations[PixelFormat.Format48bppRgb]  = PixelFormat.Format16bppGrayScale;
+            //formatTranslations[PixelFormat.Format64bppArgb] = PixelFormat.Format16bppGrayScale;
         }
 
         /// <summary>
