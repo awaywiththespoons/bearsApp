@@ -39,110 +39,111 @@ namespace ShapeMatch
 
             try
             {
-                Grayscale grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
 
-                using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width * 4, PixelFormat.Format32bppArgb))
-                using (UnmanagedImage grayscaleImage = grayscale.Apply(bitmapData))
-                //using (Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb))
-                {                    
-                    // lock image
-                    //BitmapData bitmapData = bitmap.LockBits(
-                    //    new Rectangle(0, 0, bitmap.Width, bitmap.Height),
-                    //    ImageLockMode.ReadWrite, bitmap.PixelFormat);
+                //Grayscale grayscale = new Grayscale(0.2125, 0.7154, 0.0721);
 
-                    //var ptr = bitmapData.Scan0;
+                //using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width * 4, PixelFormat.Format32bppArgb))
+                //using (UnmanagedImage grayscaleImage = grayscale.Apply(bitmapData))
+                ////using (Bitmap bitmap = new Bitmap(width, height, PixelFormat.Format32bppArgb))
+                //{                    
+                //    // lock image
+                //    //BitmapData bitmapData = bitmap.LockBits(
+                //    //    new Rectangle(0, 0, bitmap.Width, bitmap.Height),
+                //    //    ImageLockMode.ReadWrite, bitmap.PixelFormat);
 
-                    //Marshal.Copy(data, 0, ptr, data.Length);
+                //    //var ptr = bitmapData.Scan0;
 
-                    // step 1 - turn background to black
-                    //ColorFiltering colorFilter = new ColorFiltering();
+                //    //Marshal.Copy(data, 0, ptr, data.Length);
 
-                    //colorFilter.Red = new IntRange(0, Threshold);
-                    //colorFilter.Green = new IntRange(0, Threshold);
-                    //colorFilter.Blue = new IntRange(0, Threshold);
-                    //colorFilter.FillOutsideRange = false;
-                    //colorFilter.ApplyInPlace(bitmapData);
+                //    // step 1 - turn background to black
+                //    //ColorFiltering colorFilter = new ColorFiltering();
 
-                    //colorFilter.FillColor = new RGB(255, 255, 255);
-                    //colorFilter.FillOutsideRange = true;
-                    //colorFilter.ApplyInPlace(bitmapData);
+                //    //colorFilter.Red = new IntRange(0, Threshold);
+                //    //colorFilter.Green = new IntRange(0, Threshold);
+                //    //colorFilter.Blue = new IntRange(0, Threshold);
+                //    //colorFilter.FillOutsideRange = false;
+                //    //colorFilter.ApplyInPlace(bitmapData);
 
-                    //System.Drawing.Color cornerColor = bitmapData.GetPixel(0, 0);
+                //    //colorFilter.FillColor = new RGB(255, 255, 255);
+                //    //colorFilter.FillOutsideRange = true;
+                //    //colorFilter.ApplyInPlace(bitmapData);
 
-                    //Threshold threshold = new Threshold(cornerColor.R + 10);
-                    //threshold.ApplyInPlace(grayscaleImage);
+                //    //System.Drawing.Color cornerColor = bitmapData.GetPixel(0, 0);
 
-                    //// create filter
-                    //Erosion erosion = new Erosion();
-                    //// apply the filter
-                    //erosion.ApplyInPlace(grayscaleImage);
-                    //erosion.ApplyInPlace(grayscaleImage);
-                    //erosion.ApplyInPlace(grayscaleImage);
+                //    //Threshold threshold = new Threshold(cornerColor.R + 10);
+                //    //threshold.ApplyInPlace(grayscaleImage);
 
-                    //// create filter
-                    //Dilatation dilatation = new Dilatation();
-                    //// apply the filter
-                    //dilatation.ApplyInPlace(grayscaleImage);
+                //    //// create filter
+                //    //Erosion erosion = new Erosion();
+                //    //// apply the filter
+                //    //erosion.ApplyInPlace(grayscaleImage);
+                //    //erosion.ApplyInPlace(grayscaleImage);
+                //    //erosion.ApplyInPlace(grayscaleImage);
 
-                    // step 2 - locating objects
-                    BlobCounter blobCounter = new BlobCounter();
+                //    //// create filter
+                //    //Dilatation dilatation = new Dilatation();
+                //    //// apply the filter
+                //    //dilatation.ApplyInPlace(grayscaleImage);
 
-                    blobCounter.FilterBlobs = true;
-                    blobCounter.MinHeight = 10;
-                    blobCounter.MinWidth = 10;
-                    blobCounter.MaxWidth = 62;
-                    blobCounter.MaxHeight = 62;
+                //    // step 2 - locating objects
+                //    BlobCounter blobCounter = new BlobCounter();
 
-                    blobCounter.ProcessImage(grayscaleImage);
+                //    blobCounter.FilterBlobs = true;
+                //    blobCounter.MinHeight = 10;
+                //    blobCounter.MinWidth = 10;
+                //    blobCounter.MaxWidth = 62;
+                //    blobCounter.MaxHeight = 62;
 
-                    Blob[] blobs = blobCounter.GetObjectsInformation();
+                //    blobCounter.ProcessImage(grayscaleImage);
 
-                    //bitmap.UnlockBits(bitmapData);
+                //    Blob[] blobs = blobCounter.GetObjectsInformation();
 
-                    // step 3 - check objects' type and highlight
-                    SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
+                //    //bitmap.UnlockBits(bitmapData);
 
-                    for (int i = 0, n = blobs.Length; i < n; i++)
-                    {
-                        Rectangle bounds = blobs[i].Rectangle;
+                //    // step 3 - check objects' type and highlight
+                //    SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
 
-                        Circles.Add(new Circle()
-                        {
-                            X = (bounds.Width * 0.5f + bounds.X) / (float)width,
-                            Y = (bounds.Height * 0.5f + bounds.Y) / (float)height,
-                            Radius = 1,
-                        });
+                //    for (int i = 0, n = blobs.Length; i < n; i++)
+                //    {
+                //        Rectangle bounds = blobs[i].Rectangle;
 
-                        /*List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
+                //        Circles.Add(new Circle()
+                //        {
+                //            X = (bounds.Width * 0.5f + bounds.X) / (float)width,
+                //            Y = (bounds.Height * 0.5f + bounds.Y) / (float)height,
+                //            Radius = 1,
+                //        });
 
-                        AForge.Point center;
-                        float radius;
+                //        /*List<IntPoint> edgePoints = blobCounter.GetBlobsEdgePoints(blobs[i]);
 
-                        List<IntPoint> corners;
+                //        AForge.Point center;
+                //        float radius;
 
-                        // is circle ?
-                        if (shapeChecker.IsCircle(edgePoints, out center, out radius))
-                        {
-                            Circles.Add(new Circle()
-                            {
-                                X = center.X,
-                                Y = center.Y,
-                                Radius = radius,
-                            });
-                        }
-                        else 
-                        {
+                //        List<IntPoint> corners;
 
-                            Circles.Add(new Circle()
-                            {
-                                X = 1,
-                                Y = 1,
-                                Radius = 1,
-                            });
-                        }
-                        */
-                    }
-                }
+                //        // is circle ?
+                //        if (shapeChecker.IsCircle(edgePoints, out center, out radius))
+                //        {
+                //            Circles.Add(new Circle()
+                //            {
+                //                X = center.X,
+                //                Y = center.Y,
+                //                Radius = radius,
+                //            });
+                //        }
+                //        else 
+                //        {
+
+                //            Circles.Add(new Circle()
+                //            {
+                //                X = 1,
+                //                Y = 1,
+                //                Radius = 1,
+                //            });
+                //        }
+                //        */
+                //    }
+                //}
             }
             finally
             {
