@@ -25,6 +25,87 @@ public class ImageScanner : MonoBehaviour
         }
     }
 
+    //public class MatchTemplate 
+    //{
+    //    public readonly bool[] Holes;
+
+    //    public int PageIndex;
+
+    //    public string Name; 
+
+    //    public MatchTemplate(string name, int pageIndex, int[] holes)
+    //    {
+    //        Name = name; 
+    //        PageIndex = pageIndex;
+
+    //        Holes = new bool[holes.Length];
+
+    //        for (int i = 0; i < holes.Length; i++)
+    //        {
+    //            Holes[i] = holes[i] > 0;
+    //        }
+    //    }
+    //}
+
+
+    //public class Matcher 
+    //{
+    //    List<MatchTemplate> matches = new List<MatchTemplate>();
+
+    //    public readonly List<Circle> Circles = new List<Circle>(); 
+
+    //    public Matcher()
+    //    {
+    //        matches.Add(new MatchTemplate("Tree", 1, 
+    //            new int[] {
+    //                0, 1, 1,
+    //                1, 1, 0,
+    //                0, 0, 1
+    //            }));
+
+    //        matches.Add(new MatchTemplate("Weed", 2,
+    //            new int[] {
+    //                1, 1, 1,
+    //                1, 1, 0,
+    //                1, 0, 1
+    //            }));
+
+    //        matches.Add(new MatchTemplate("House", 3,
+    //            new int[] {
+    //                0, 1, 1,
+    //                1, 0, 1,
+    //                0, 1, 1
+    //            }));
+
+    //        matches.Add(new MatchTemplate("Dune", 4,
+    //            new int[] {
+    //                1, 1, 1,
+    //                0, 0, 0,
+    //                1, 1, 1
+    //            }));
+
+    //        matches.Add(new MatchTemplate("Stalk", 5,
+    //            new int[] {
+    //                1, 1, 1,
+    //                1, 1, 1,
+    //                0, 1, 1
+    //            }));
+    //    }
+
+    //    public void AddCircles(ShapeMatcher matcher)
+    //    {
+    //        Circles.AddRange(matcher.Circles); 
+    //    }
+
+    //    public void TryResolvePage(out string name, out int pageIndex, out float confidence)
+    //    {
+    //        float consol = 
+
+    //        List<Circle> circles = new List<Circle>();
+
+
+    //    }
+    //}
 
     public class ShapeMatcher
     {
@@ -233,6 +314,8 @@ public class ImageScanner : MonoBehaviour
             {
                 DebugText.text = countMax.ToString(); //  matcher.Circles.Count.ToString();
             }
+
+            print(countMax.ToString()); 
         }
         catch (Exception ex)
         {
