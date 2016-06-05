@@ -17,15 +17,21 @@ public class Page : MonoBehaviour {
 
     public void ResetAnimations()
     {
-        foreach (Animation animation in animations)
+        if (animations != null)
         {
-            animation.Rewind();
-            animation.Play(); 
+            foreach (Animation animation in animations)
+            {
+                animation.Rewind();
+                animation.Play();
+            }
         }
 
-        foreach (Resetable resetable in resetables)
+        if (resetables != null)
         {
-            resetable.Reset(); 
+            foreach (Resetable resetable in resetables)
+            {
+                resetable.Reset();
+            }
         }        
     }
 }

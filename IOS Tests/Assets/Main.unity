@@ -719,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0055ac713af4aa0b31c9709b3b8fe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!114 &38786467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2382,7 +2383,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2393,7 +2394,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2404,7 +2405,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!95 &153943663
 Animator:
   serializedVersion: 3
@@ -2430,9 +2431,48 @@ MonoBehaviour:
   m_GameObject: {fileID: 153943660}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f048844cf343e46a5807ba6713c51cde, type: 3}
+  m_Script: {fileID: 11500000, guid: 980127358f52f774391d3b693b7c9e19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
+  walkTime: 30
+  XPosition:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 5.027974
+      outSlope: 5.027974
+      tangentMode: 10
+    - time: 0.99515486
+      value: 5.003613
+      inSlope: 5.027974
+      outSlope: 5.027974
+      tangentMode: 10
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  YPosition:
+    serializedVersion: 2
+    m_Curve:
+    - time: -0.012415055
+      value: -0.019355297
+      inSlope: 11.773525
+      outSlope: 11.773525
+      tangentMode: 0
+    - time: 0.49976876
+      value: 8.067853
+      inSlope: 0.39577484
+      outSlope: 0.39577484
+      tangentMode: 0
+    - time: 1.0041384
+      value: 0.023464441
+      inSlope: -12.111993
+      outSlope: -12.111993
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!50 &153943665
 Rigidbody2D:
   serializedVersion: 2
@@ -8722,6 +8762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa5456bcb3ad4c12801354144a4f741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!111 &595399573
 Animation:
   m_ObjectHideFlags: 0
@@ -9233,6 +9274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abab96bb8589d4acd97ffc86c85e2e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &621809535
 GameObject:
   m_ObjectHideFlags: 0
@@ -9868,6 +9910,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abab96bb8589d4acd97ffc86c85e2e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &660727450
 GameObject:
   m_ObjectHideFlags: 0
@@ -10264,6 +10307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa5456bcb3ad4c12801354144a4f741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!95 &676770879
 Animator:
   serializedVersion: 3
@@ -13334,7 +13378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseWebCam: 1
-  TestImage: {fileID: 2800000, guid: 547eec4f7b23b8a49a983f2ddcc8a629, type: 3}
+  TestImage: {fileID: 2800000, guid: 1f5ac5f9b2af79a4b957b03b694ef571, type: 3}
   CameraTest: {fileID: 1195661393}
   CurrentTexture: {fileID: 0}
   DebugText: {fileID: 1994004703}
@@ -15404,6 +15448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfa5456bcb3ad4c12801354144a4f741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!95 &1004521528
 Animator:
   serializedVersion: 3
@@ -15735,6 +15780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abab96bb8589d4acd97ffc86c85e2e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &1013204202
 GameObject:
   m_ObjectHideFlags: 0
@@ -17092,6 +17138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 132141414f779496c93307e37d76e254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &1070451127
 GameObject:
   m_ObjectHideFlags: 0
@@ -17562,6 +17609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8f650ef4b344521857bef4f1cbab13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!82 &1083093099
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17613,7 +17661,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -17624,7 +17672,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -17635,7 +17683,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!111 &1083093100
 Animation:
   m_ObjectHideFlags: 0
@@ -17661,6 +17709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8f650ef4b344521857bef4f1cbab13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!95 &1083093102
 Animator:
   serializedVersion: 3
@@ -20491,7 +20540,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -20554,7 +20603,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -20565,7 +20614,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -20576,7 +20625,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &1290341470
 GameObject:
   m_ObjectHideFlags: 0
@@ -21670,7 +21719,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -27842,6 +27891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abab96bb8589d4acd97ffc86c85e2e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPostion: {x: 0, y: 0, z: 0}
 --- !u!1 &1799515744
 GameObject:
   m_ObjectHideFlags: 0

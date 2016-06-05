@@ -559,6 +559,8 @@ public class ImageScanner : MonoBehaviour
             {
                 DebugText.text = ex.Message;
             }
+
+            Debug.LogException(ex); 
         }
         finally
         {

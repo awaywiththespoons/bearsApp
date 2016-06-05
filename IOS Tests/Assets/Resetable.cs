@@ -8,14 +8,15 @@ namespace Assets
 {
     public class Resetable : MonoBehaviour
     {
-        Vector3 startingPostion;
+        [HideInInspector] 
+        public Vector3 startingPostion;
 
         void Awake()
         {
             startingPostion = transform.position;
         }
 
-        public void Reset()
+        public virtual void Reset()
         {
             transform.position = startingPostion;
         }
