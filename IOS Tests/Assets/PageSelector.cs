@@ -2,13 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using TouchScript.Gestures;
+using System;
 
 [RequireComponent(typeof(FlickGesture))]
 public class PageSelector : MonoBehaviour {
 
+    List<int> pageHistory = new List<int>();
+
     private Dictionary<int, Page> pages = new Dictionary<int, Page>();
     private FlickGesture horizontalFlick;
-    private int activePage; 
+    private int activePage;
+    private DateTime lastPageChange;
 
     public void SelectPage(int pageNumber)
     {
@@ -20,6 +24,26 @@ public class PageSelector : MonoBehaviour {
             return; 
         }
 
+        if (activePage == pageNumber)
+        {
+            return; 
+        }
+
+        if (pageNumber != 0 && pageNumber != 6)
+        {
+            pageHistory.Add(pageNumber);
+
+            if (CheckForEndOfStory() == true)
+            {
+                pageNumber = 6;
+                pageHistory.Clear();
+            }
+        }
+        else
+        {
+            pageHistory.Clear(); 
+        }
+
         print("Setting current page to '" + pageNumber + "'.");
 
         activePage = pageNumber; 
@@ -28,7 +52,48 @@ public class PageSelector : MonoBehaviour {
         {
             other.gameObject.SetActive(other.PageNumber == pageNumber); 
         }
+
+        lastPageChange = DateTime.Now;
     }
+
+    // Use this for initialization
+    void Start()
+    {
+        lastPageChange = DateTime.Now;
+
+    }
+
+    bool CheckForEndOfStory()
+    {        
+        // end if there are 5 pages
+        if (pageHistory.Count >= 5)
+        {
+            return true; 
+        }
+
+        // end for three pages in a row
+        for (int pageIndex = 0; pageIndex <= 5; pageIndex++)
+        {
+            // count when a page is put on the screen 
+            int count = 0;
+            for (int j = 0; j < pageHistory.Count; j++)
+            {
+                if (pageHistory[j] == pageIndex)
+                {
+                    count++;
+                }
+            }
+
+            // when the count of that page is 3 then end
+            if (count >= 3)
+            {
+                return true;
+            }
+        }
+
+        return false; 
+    }
+
 
     void Awake()
     {
@@ -63,12 +128,6 @@ public class PageSelector : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void Update () {
 
         // flip between pages (debug) 
@@ -122,5 +181,9 @@ public class PageSelector : MonoBehaviour {
             SelectPage(9);
         }
 
+        if (lastPageChange < DateTime.Now.Subtract(new TimeSpan(0, 1, 0)))
+        {
+            SelectPage(0);
+        }
     }
 }

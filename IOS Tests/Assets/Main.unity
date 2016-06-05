@@ -13246,7 +13246,6 @@ GameObject:
   - 114: {fileID: 873877567}
   - 114: {fileID: 873877566}
   - 114: {fileID: 873877568}
-  - 114: {fileID: 873877569}
   m_Layer: 0
   m_Name: Page Selector
   m_TagString: Untagged
@@ -13329,27 +13328,16 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 873877563}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59264ac8293b9234c8a1fff0fe1ba60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   UseWebCam: 1
-  TestImage: {fileID: 2800000, guid: 01d71aa5c3da83742bb21345f44ec65d, type: 3}
+  TestImage: {fileID: 2800000, guid: 547eec4f7b23b8a49a983f2ddcc8a629, type: 3}
   CameraTest: {fileID: 1195661393}
   CurrentTexture: {fileID: 0}
   DebugText: {fileID: 1994004703}
---- !u!114 &873877569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 873877563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0958706116c894bea93a2f2c94c29ee8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &874729018
 GameObject:
   m_ObjectHideFlags: 0
@@ -27435,7 +27423,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
