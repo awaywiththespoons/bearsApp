@@ -114,9 +114,9 @@ public class ImageScanner : MonoBehaviour
 
             matchTemplates.Add(new MatchTemplate("Stalk", 5,
                 new int[] {
-                    1, 1, 0,
-                    1, 1, 1,
-                    0, 1, 1
+                    1, 0, 1,
+                    0, 1, 0,
+                    1, 0, 1
                 }));
 
             //matchTemplates.Add(new MatchTemplate("Stalk", 5,
