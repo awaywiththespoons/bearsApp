@@ -374,8 +374,9 @@ public class ImageScanner : MonoBehaviour
 
     int lastMatch = -1;
     int matchFrames = 0;
-    float accumulativeConfidence = 0; 
-      
+    float accumulativeConfidence = 0;
+    int lowConfidenceFrames = 0;
+
     //byte[] tempColorBytes = new byte[0];
 
     [SerializeField]
@@ -551,6 +552,15 @@ public class ImageScanner : MonoBehaviour
 
                 print("Image: " + CurrentTexture.width + "x" + CurrentTexture.height + ", Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Circle Count: " + circleCount + ", Confidence: " + confidence);
 
+                if (confidence < 0.5)
+                {
+                    lowConfidenceFrames++;
+                }
+                else
+                {
+                    lowConfidenceFrames = 0; 
+                }
+
                 if (lastMatch != pageIndex)
                 {
                     lastMatch = pageIndex;
@@ -566,6 +576,11 @@ public class ImageScanner : MonoBehaviour
                     {
                         pageSelector.SelectPage(pageIndex);
                     }
+                }
+
+                if (lowConfidenceFrames > 10)
+                {
+                    pageSelector.SelectPage(7);
                 }
             }
         }

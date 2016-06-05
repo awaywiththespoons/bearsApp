@@ -30,7 +30,7 @@ public class PageSelector : MonoBehaviour {
             return; 
         }
 
-        if (pageNumber != 0 && pageNumber != 6)
+        if (pageNumber != 0 && pageNumber < 6)
         {
             //if (CheckForEndOfStory() == true)
             //{
@@ -190,7 +190,7 @@ public class PageSelector : MonoBehaviour {
 
         if (lastPageChange < DateTime.Now.Subtract(new TimeSpan(0, 1, 0)))
         {
-            if (activePage == 6)
+            if (activePage >= 6)
             {
                 SelectPage(0);
             }
