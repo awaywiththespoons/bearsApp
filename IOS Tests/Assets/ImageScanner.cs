@@ -15,10 +15,84 @@ using ShapeMatch;
 
 public class ImageScanner : MonoBehaviour
 {
+    public struct Circle
+    {
+        public double X, Y, Radius;
+
+        public override string ToString()
+        {
+            return string.Format("X:{0}, Y:{1}, Radius:{2}", X, Y, Radius);
+        }
+    }
+
+
+    public class ShapeMatcher
+    {
+        public readonly List<Circle> Circles = new List<Circle>();
+
+        public const int Threshold = 12; // 64;
+
+        public void Match(int thresholdValue, int width, int height, byte[] data)
+        {
+
+            Circles.Clear();
+
+            GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+
+            try
+            {
+                using (UnmanagedImage bitmapData = new UnmanagedImage(handle.AddrOfPinnedObject(), width, height, width, PixelFormat.Format8bppIndexed))
+                {
+                    if (thresholdValue == 0)
+                    {
+                        System.Drawing.Color cornerColor = bitmapData.GetPixel(0, 0);
+
+                        thresholdValue = cornerColor.R + 10;
+                    }
+
+                    Threshold threshold = new Threshold(thresholdValue); //  cornerColor.R + 10);
+                    threshold.ApplyInPlace(bitmapData);
+                    
+                    BlobCounter blobCounter = new BlobCounter();
+
+                    blobCounter.FilterBlobs = true;
+                    blobCounter.MinHeight = 10;
+                    blobCounter.MinWidth = 10;
+                    blobCounter.MaxWidth = 60;
+                    blobCounter.MaxHeight = 60;
+                    
+                    blobCounter.ProcessImage(bitmapData);
+
+                    Blob[] blobs = blobCounter.GetObjectsInformation();
+                    
+                    SimpleShapeChecker shapeChecker = new SimpleShapeChecker();
+
+                    for (int i = 0, n = blobs.Length; i < n; i++)
+                    {
+                        Rectangle bounds = blobs[i].Rectangle;
+
+                        Circles.Add(new Circle()
+                        {
+                            X = (bounds.Width * 0.5f + bounds.X) / (float)width,
+                            Y = (bounds.Height * 0.5f + bounds.Y) / (float)height,
+                            Radius = 1,
+                        });
+                    }
+                }
+            }
+            finally
+            {
+                handle.Free();
+            }
+
+        }
+    }
+
     ShapeMatcher matcher = new ShapeMatcher(); 
 
     WebCamTexture webCamTexture;
-    byte[] colorBytes = new byte[0]; 
+    byte[] colorBytes = new byte[0];
+    byte[] tempColorBytes = new byte[0];
 
     [SerializeField]
     public bool UseWebCam = true;
@@ -105,6 +179,7 @@ public class ImageScanner : MonoBehaviour
                 if (colorBytes.Length != TestImage.width * TestImage.height)
                 {
                     colorBytes = new byte[TestImage.width * TestImage.height];
+                    tempColorBytes = new byte[colorBytes.Length]; 
                 }
 
                 Color32[] colorData = TestImage.GetPixels32();
@@ -112,8 +187,6 @@ public class ImageScanner : MonoBehaviour
                 GetArrayBytes_Greyscale(colorData, TestImage.width * TestImage.height, colorBytes);
 
                 //handle = GCHandle.Alloc(colorBytes, GCHandleType.Pinned);
-
-                matcher.Match(CurrentTexture.width, CurrentTexture.height, colorBytes); // handle.AddrOfPinnedObject());
             }
             else
             {
@@ -132,6 +205,7 @@ public class ImageScanner : MonoBehaviour
                 if (colorBytes.Length != webCamTexture.width * webCamTexture.height)
                 {
                     colorBytes = new byte[webCamTexture.width * webCamTexture.height];
+                    tempColorBytes = new byte[colorBytes.Length];
                 }
 
                 Color32[] colorData = webCamTexture.GetPixels32();
@@ -139,13 +213,25 @@ public class ImageScanner : MonoBehaviour
                 GetArrayBytes_Greyscale(colorData, webCamTexture.width * webCamTexture.height, colorBytes);
 
                 //handle = GCHandle.Alloc(colorBytes, GCHandleType.Pinned);
-
-                matcher.Match(CurrentTexture.width, CurrentTexture.height, colorBytes); // handle.AddrOfPinnedObject());
             }
+
+            int countMax = 0;
+
+            Array.Copy(colorBytes, tempColorBytes, colorBytes.Length); 
+            matcher.Match(0, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
+            countMax = Mathf.Max(countMax, matcher.Circles.Count);
+            
+            Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
+            matcher.Match(50, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
+            countMax = Mathf.Max(countMax, matcher.Circles.Count);
+            
+            Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
+            matcher.Match(100, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
+            countMax = Mathf.Max(countMax, matcher.Circles.Count);
 
             if (DebugText != null)
             {
-                DebugText.text = matcher.Circles.Count.ToString();
+                DebugText.text = countMax.ToString(); //  matcher.Circles.Count.ToString();
             }
         }
         catch (Exception ex)
@@ -179,7 +265,8 @@ public class ImageScanner : MonoBehaviour
 
     private static byte Max(Color32 color32)
     {
-        return (byte)Mathf.Max(color32.r, color32.g, color32.b); 
+        //return (byte)(((float)color32.r + (float)color32.g + (float)color32.b) * 0.33333f);// (byte)Mathf.Max(color32.r, color32.g, color32.b); 
+        return (byte)(((float)color32.g + (float)color32.b) * 0.5f);// (byte)Mathf.Max(color32.r, color32.g, color32.b); 
     }
 
     private static void GetArrayBytes<T>(T[] array, int count, byte[] bytes)

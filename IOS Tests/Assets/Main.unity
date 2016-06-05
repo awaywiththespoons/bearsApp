@@ -4247,8 +4247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59264ac8293b9234c8a1fff0fe1ba60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseWebCam: 0
-  TestImage: {fileID: 2800000, guid: 01d71aa5c3da83742bb21345f44ec65d, type: 3}
+  UseWebCam: 1
+  TestImage: {fileID: 0}
   CameraTest: {fileID: 1195661393}
   CurrentTexture: {fileID: 0}
   DebugText: {fileID: 1994004703}
