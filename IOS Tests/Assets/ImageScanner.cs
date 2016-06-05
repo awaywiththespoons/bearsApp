@@ -25,87 +25,272 @@ public class ImageScanner : MonoBehaviour
         }
     }
 
-    //public class MatchTemplate 
-    //{
-    //    public readonly bool[] Holes;
+    public class MatchTemplate
+    {
+        public readonly bool[] Holes;
 
-    //    public int PageIndex;
+        public int PageIndex;
 
-    //    public string Name; 
+        public string Name;
 
-    //    public MatchTemplate(string name, int pageIndex, int[] holes)
-    //    {
-    //        Name = name; 
-    //        PageIndex = pageIndex;
+        public MatchTemplate(string name, int pageIndex, int[] holes)
+        {
+            Name = name;
+            PageIndex = pageIndex;
 
-    //        Holes = new bool[holes.Length];
+            Holes = new bool[holes.Length];
 
-    //        for (int i = 0; i < holes.Length; i++)
-    //        {
-    //            Holes[i] = holes[i] > 0;
-    //        }
-    //    }
-    //}
-
-
-    //public class Matcher 
-    //{
-    //    List<MatchTemplate> matches = new List<MatchTemplate>();
-
-    //    public readonly List<Circle> Circles = new List<Circle>(); 
-
-    //    public Matcher()
-    //    {
-    //        matches.Add(new MatchTemplate("Tree", 1, 
-    //            new int[] {
-    //                0, 1, 1,
-    //                1, 1, 0,
-    //                0, 0, 1
-    //            }));
-
-    //        matches.Add(new MatchTemplate("Weed", 2,
-    //            new int[] {
-    //                1, 1, 1,
-    //                1, 1, 0,
-    //                1, 0, 1
-    //            }));
-
-    //        matches.Add(new MatchTemplate("House", 3,
-    //            new int[] {
-    //                0, 1, 1,
-    //                1, 0, 1,
-    //                0, 1, 1
-    //            }));
-
-    //        matches.Add(new MatchTemplate("Dune", 4,
-    //            new int[] {
-    //                1, 1, 1,
-    //                0, 0, 0,
-    //                1, 1, 1
-    //            }));
-
-    //        matches.Add(new MatchTemplate("Stalk", 5,
-    //            new int[] {
-    //                1, 1, 1,
-    //                1, 1, 1,
-    //                0, 1, 1
-    //            }));
-    //    }
-
-    //    public void AddCircles(ShapeMatcher matcher)
-    //    {
-    //        Circles.AddRange(matcher.Circles); 
-    //    }
-
-    //    public void TryResolvePage(out string name, out int pageIndex, out float confidence)
-    //    {
-    //        float consol = 
-
-    //        List<Circle> circles = new List<Circle>();
+            for (int i = 0; i < holes.Length; i++)
+            {
+                Holes[i] = holes[i] > 0;
+            }
+        }
+    }
 
 
-    //    }
-    //}
+    public class Matcher
+    {
+        List<MatchTemplate> matchTemplates = new List<MatchTemplate>();
+
+        public readonly List<Circle> Circles = new List<Circle>();
+
+        public Matcher()
+        {
+            matchTemplates.Add(new MatchTemplate("Tree", 1,
+                new int[] {
+                    0, 1, 1,
+                    1, 1, 0,
+                    0, 0, 1
+                }));
+
+            //matchTemplates.Add(new MatchTemplate("Tree", 1,
+            //    new int[] {
+            //        0, 1, 1,
+            //        1, 1, 1,
+            //        0, 0, 1
+            //    }));
+
+            matchTemplates.Add(new MatchTemplate("Weed", 2,
+                new int[] {
+                    1, 1, 1,
+                    1, 1, 0,
+                    1, 0, 1
+                }));
+
+            matchTemplates.Add(new MatchTemplate("House", 3,
+                new int[] {
+                    0, 1, 1,
+                    1, 0, 1,
+                    0, 1, 1
+                }));
+
+            matchTemplates.Add(new MatchTemplate("Dune", 4,
+                new int[] {
+                    1, 1, 1,
+                    0, 0, 0,
+                    1, 1, 1
+                }));
+
+            matchTemplates.Add(new MatchTemplate("Dune", 4,
+                new int[] {
+                    1, 1, 1,
+                    1, 1, 1,
+                    0, 0, 0,
+                }));
+            matchTemplates.Add(new MatchTemplate("Dune", 4,
+                new int[] {
+                    1, 0, 1,
+                    1, 0, 1,
+                    1, 0, 1,
+                }));
+
+            matchTemplates.Add(new MatchTemplate("Dune", 4,
+                new int[] {
+                    1, 1, 0, 
+                    1, 1, 0, 
+                    1, 1, 0, 
+                }));
+
+            matchTemplates.Add(new MatchTemplate("Stalk", 5,
+                new int[] {
+                    1, 1, 1,
+                    1, 1, 1,
+                    1, 1, 0
+                }));
+
+            //matchTemplates.Add(new MatchTemplate("Stalk", 5,
+            //    new int[] {
+            //        1, 1, 0,
+            //        1, 1, 1,
+            //        1, 1, 1
+            //    }));
+            //matchTemplates.Add(new MatchTemplate("Stalk", 5,
+            //    new int[] {
+            //        1, 0, 1,
+            //        0, 1, 0,
+            //        0, 0, 1
+            //    }));
+
+            //matchTemplates.Add(new MatchTemplate("Stalk", 5,
+            //    new int[] {
+            //        0, 0, 1,
+            //        0, 1, 0,
+            //        1, 0, 1
+            //    }));
+        }
+
+        public void AddCircles(ShapeMatcher matcher)
+        {
+            Circles.AddRange(matcher.Circles);
+        }
+
+        public void TryResolvePage(out string name, out int pageIndex, out float confidence)
+        {
+            float consolidateDistanceX = 0.111111f;
+            float consolidateDistanceY = 0.1484375f;
+
+            List<Circle> originalCircles = new List<Circle>(Circles);
+            List<Circle> circles = new List<Circle>();
+
+            confidence = 0;
+            pageIndex = -1;
+            name = "Unknown";
+
+            //for (int i = originalCircles.Count - 1; i >= 0; i--)
+            while (originalCircles.Count > 0)
+            {                
+                Circle circle = originalCircles[originalCircles.Count - 1];
+
+                originalCircles.RemoveAt(originalCircles.Count - 1); 
+
+                for (int j = originalCircles.Count - 1; j >= 0; j--)
+                {
+                    Circle other = originalCircles[j];
+
+                    if (Math.Abs(other.X - circle.X) > consolidateDistanceX ||
+                        Math.Abs(other.Y - circle.Y) > consolidateDistanceY)
+                    {
+                        continue; 
+                    }
+
+                    originalCircles.RemoveAt(j); 
+                }
+
+                circles.Add(circle); 
+            }
+
+            float[] gridXOffsets = new float[3];
+            float[] gridYOffsets = new float[3];
+
+            float lastOffset = -1; 
+            for (int x = 0; x < 3; x++)
+            {
+                float min = float.MaxValue; 
+
+                foreach (Circle circle in circles)
+                {
+                    if (circle.X < lastOffset + consolidateDistanceX)
+                    {
+                        continue; 
+                    }
+
+                    min = Mathf.Min(min, (float)circle.X);
+                }
+
+                gridXOffsets[x] = min;
+                lastOffset = min; 
+            }
+
+            lastOffset = -1;
+            for (int y = 0; y < 3; y++)
+            {
+                float min = float.MaxValue;
+
+                foreach (Circle circle in circles)
+                {
+                    if (circle.Y < lastOffset + consolidateDistanceY)
+                    {
+                        continue;
+                    }
+
+                    min = Mathf.Min(min, (float)circle.Y);
+                }
+
+                gridYOffsets[y] = min;
+                lastOffset = min;
+            }
+
+            bool[] shape = new bool[9];
+
+            for (int y = 0; y < gridYOffsets.Length; y++)
+            {
+                for (int x = 0; x < gridXOffsets.Length; x++)
+                {
+                    foreach (Circle circle in circles)
+                    {
+                        if (Math.Abs(gridXOffsets[x] - circle.X) > consolidateDistanceX ||
+                            Math.Abs(gridYOffsets[y] - circle.Y) > consolidateDistanceY)
+                        {
+                            continue;
+                        }
+
+                        shape[y * gridXOffsets.Length + x] = true; 
+                    }
+                }
+            }
+
+            float scoreIncrement = 1f / 9f;
+
+            MatchTemplate bestMatch = null;
+            confidence = 0; 
+
+            foreach (MatchTemplate template in matchTemplates)
+            {
+                float score = 0; 
+
+                for (int i = 0; i < 9; i++)
+                {
+                    float scoreFactor = 0;
+
+                    bool templateHasHole = template.Holes[i];
+                    bool matchHasHole = shape[i];
+
+                    if (templateHasHole == true && matchHasHole == true)
+                    {
+                        scoreFactor = 1;
+                    }
+                    else if (templateHasHole == false && matchHasHole == false)
+                    {
+                        scoreFactor = 1;
+                    }
+                    else if (templateHasHole == false && matchHasHole == true)
+                    {
+                        scoreFactor = -1;
+                    }
+
+                    //else if (shape[i] == true)
+                    //{
+                    //    scoreFactor = -1;
+                    //}
+                    //else
+                    //{
+                    //    scoreFactor = -1;
+                    //}
+
+                    score += scoreIncrement * scoreFactor; 
+                }
+
+                if (bestMatch == null || score > confidence)
+                {
+                    bestMatch = template;
+                    confidence = score; 
+                }
+            }
+
+            name = bestMatch.Name; 
+            pageIndex = bestMatch.PageIndex; 
+        }
+    }
 
     public class ShapeMatcher
     {
@@ -139,8 +324,8 @@ public class ImageScanner : MonoBehaviour
                     blobCounter.FilterBlobs = true;
                     blobCounter.MinHeight = 10;
                     blobCounter.MinWidth = 10;
-                    blobCounter.MaxWidth = 60;
-                    blobCounter.MaxHeight = 60;
+                    blobCounter.MaxWidth = 30;
+                    blobCounter.MaxHeight = 30;
                     
                     blobCounter.ProcessImage(bitmapData);
 
@@ -169,7 +354,8 @@ public class ImageScanner : MonoBehaviour
         }
     }
 
-    ShapeMatcher matcher = new ShapeMatcher(); 
+    ShapeMatcher imageScanner = new ShapeMatcher();
+    Matcher matcher = new Matcher(); 
 
     WebCamTexture webCamTexture;
     byte[] colorBytes = new byte[0];
@@ -296,26 +482,43 @@ public class ImageScanner : MonoBehaviour
                 //handle = GCHandle.Alloc(colorBytes, GCHandleType.Pinned);
             }
 
-            int countMax = 0;
+            //    AddCircles(ShapeMatcher matcher)
+            //{
+            //        Circles.AddRange(matcher.Circles);
+            //    }
+
+            //public void TryResolvePage(out string name, out int pageIndex, out float confidence)
+
+            matcher.Circles.Clear(); 
+
+            int pageIndex = -1;
 
             Array.Copy(colorBytes, tempColorBytes, colorBytes.Length); 
-            matcher.Match(0, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
-            countMax = Mathf.Max(countMax, matcher.Circles.Count);
-            
+            imageScanner.Match(0, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
+            matcher.AddCircles(imageScanner); 
+            //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
+
             Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
-            matcher.Match(50, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
-            countMax = Mathf.Max(countMax, matcher.Circles.Count);
-            
+            imageScanner.Match(50, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
+            //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
+            matcher.AddCircles(imageScanner);
+
             Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
-            matcher.Match(100, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
-            countMax = Mathf.Max(countMax, matcher.Circles.Count);
+            imageScanner.Match(100, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
+            //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
+            matcher.AddCircles(imageScanner);
+
+            string name;
+            float confidence;
+
+            matcher.TryResolvePage(out name, out pageIndex, out confidence); 
 
             if (DebugText != null)
             {
-                DebugText.text = countMax.ToString(); //  matcher.Circles.Count.ToString();
+                DebugText.text = pageIndex.ToString(); //  matcher.Circles.Count.ToString();
             }
 
-            print(countMax.ToString()); 
+            print("Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Confidence: " + confidence); 
         }
         catch (Exception ex)
         {
