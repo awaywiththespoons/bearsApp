@@ -195,6 +195,7 @@
      <Compile Include="Assets\backAccrossScreen.cs" />
      <Compile Include="Assets\backgroundMove.cs" />
      <Compile Include="Assets\moveLEFT.cs" />
+     <Compile Include="Assets\pageSorter.cs" />
      <Compile Include="Assets\swimUP.cs" />
      <None Include="Assets\TouchScript\Shaders\DebugDepthTest.shader" />
      <None Include="Assets\Puppet2D\Shaders\BlackAndWhite.shader" />

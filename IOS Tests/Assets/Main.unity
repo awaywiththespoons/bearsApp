@@ -13246,6 +13246,7 @@ GameObject:
   - 114: {fileID: 873877567}
   - 114: {fileID: 873877566}
   - 114: {fileID: 873877568}
+  - 114: {fileID: 873877569}
   m_Layer: 0
   m_Name: Page Selector
   m_TagString: Untagged
@@ -13338,6 +13339,17 @@ MonoBehaviour:
   CameraTest: {fileID: 1195661393}
   CurrentTexture: {fileID: 0}
   DebugText: {fileID: 1994004703}
+--- !u!114 &873877569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873877563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0958706116c894bea93a2f2c94c29ee8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &874729018
 GameObject:
   m_ObjectHideFlags: 0
