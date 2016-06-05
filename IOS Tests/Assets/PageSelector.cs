@@ -66,7 +66,7 @@ public class PageSelector : MonoBehaviour {
     bool CheckForEndOfStory()
     {        
         // end if there are 5 pages
-        if (pageHistory.Count >= 5)
+        if (pageHistory.Count >= 6)
         {
             return true; 
         }
@@ -85,7 +85,7 @@ public class PageSelector : MonoBehaviour {
             }
 
             // when the count of that page is 3 then end
-            if (count >= 3)
+            if (count >= 4)
             {
                 return true;
             }
