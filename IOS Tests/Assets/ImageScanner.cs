@@ -58,6 +58,13 @@ public class ImageScanner : MonoBehaviour
         {
             matchTemplates.Add(new MatchTemplate("Tree", 1,
                 new int[] {
+                    1, 1, 1,
+                    1, 1, 0,
+                    0, 0, 1
+                }));
+
+            matchTemplates.Add(new MatchTemplate("Tree", 1,
+                new int[] {
                     0, 1, 1,
                     1, 1, 0,
                     0, 0, 1
@@ -84,38 +91,38 @@ public class ImageScanner : MonoBehaviour
                     0, 1, 1
                 }));
 
-            matchTemplates.Add(new MatchTemplate("Dune", 4,
-                new int[] {
-                    1, 1, 1,
-                    0, 0, 0,
-                    1, 1, 1
-                }));
+            //matchTemplates.Add(new MatchTemplate("Dune", 4,
+            //    new int[] {
+            //        1, 1, 1,
+            //        0, 0, 0,
+            //        1, 1, 1
+            //    }));
+
+            //matchTemplates.Add(new MatchTemplate("Dune", 4,
+            //    new int[] {
+            //        1, 1, 1,
+            //        1, 1, 1,
+            //        0, 0, 0,
+            //    }));
+            //matchTemplates.Add(new MatchTemplate("Dune", 4,
+            //    new int[] {
+            //        1, 0, 1,
+            //        1, 0, 1,
+            //        1, 0, 1,
+            //    }));
 
             matchTemplates.Add(new MatchTemplate("Dune", 4,
                 new int[] {
-                    1, 1, 1,
-                    1, 1, 1,
-                    0, 0, 0,
-                }));
-            matchTemplates.Add(new MatchTemplate("Dune", 4,
-                new int[] {
-                    1, 0, 1,
-                    1, 0, 1,
-                    1, 0, 1,
-                }));
-
-            matchTemplates.Add(new MatchTemplate("Dune", 4,
-                new int[] {
-                    1, 1, 0, 
-                    1, 1, 0, 
-                    1, 1, 0, 
+                    1, 1, 0,
+                    1, 1, 0,
+                    1, 1, 0,
                 }));
 
             matchTemplates.Add(new MatchTemplate("Stalk", 5,
                 new int[] {
                     1, 1, 1,
                     1, 1, 1,
-                    1, 1, 0
+                    0, 1, 1
                 }));
 
             //matchTemplates.Add(new MatchTemplate("Stalk", 5,
@@ -144,10 +151,10 @@ public class ImageScanner : MonoBehaviour
             Circles.AddRange(matcher.Circles);
         }
 
-        public void TryResolvePage(out string name, out int pageIndex, out float confidence)
+        public void TryResolvePage(out string name, out int pageIndex, out float confidence, out int circleCount)
         {
             float consolidateDistanceX = 0.111111f;
-            float consolidateDistanceY = 0.1484375f;
+            float consolidateDistanceY = 0.1484375f * 1.2f;
 
             List<Circle> originalCircles = new List<Circle>(Circles);
             List<Circle> circles = new List<Circle>();
@@ -257,13 +264,17 @@ public class ImageScanner : MonoBehaviour
 
                     if (templateHasHole == true && matchHasHole == true)
                     {
-                        scoreFactor = 1;
+                        scoreFactor = 1.2f;
                     }
                     else if (templateHasHole == false && matchHasHole == false)
                     {
-                        scoreFactor = 1;
+                        scoreFactor = 1.2f;
                     }
                     else if (templateHasHole == false && matchHasHole == true)
+                    {
+                        scoreFactor = -1;
+                    }
+                    else if (templateHasHole == true && matchHasHole == false)
                     {
                         scoreFactor = -1;
                     }
@@ -288,7 +299,8 @@ public class ImageScanner : MonoBehaviour
             }
 
             name = bestMatch.Name; 
-            pageIndex = bestMatch.PageIndex; 
+            pageIndex = bestMatch.PageIndex;
+            circleCount = circles.Count; 
         }
     }
 
@@ -321,11 +333,14 @@ public class ImageScanner : MonoBehaviour
                     
                     BlobCounter blobCounter = new BlobCounter();
 
+                    float minSize = (23f / 352f) * width; 
+                    float maxSize = (58f / 352f) * width;
+
                     blobCounter.FilterBlobs = true;
-                    blobCounter.MinHeight = 10;
-                    blobCounter.MinWidth = 10;
-                    blobCounter.MaxWidth = 30;
-                    blobCounter.MaxHeight = 30;
+                    blobCounter.MinHeight = (int)minSize;
+                    blobCounter.MinWidth = (int)minSize;
+                    blobCounter.MaxWidth = (int)maxSize;
+                    blobCounter.MaxHeight = (int)maxSize;
                     
                     blobCounter.ProcessImage(bitmapData);
 
@@ -340,7 +355,7 @@ public class ImageScanner : MonoBehaviour
                         Circles.Add(new Circle()
                         {
                             X = (bounds.Width * 0.5f + bounds.X) / (float)width,
-                            Y = (bounds.Height * 0.5f + bounds.Y) / (float)height,
+                            Y = 1f - ((bounds.Height * 0.5f + bounds.Y) / (float)height),
                             Radius = 1,
                         });
                     }
@@ -510,15 +525,16 @@ public class ImageScanner : MonoBehaviour
 
             string name;
             float confidence;
+            int circleCount; 
 
-            matcher.TryResolvePage(out name, out pageIndex, out confidence); 
+            matcher.TryResolvePage(out name, out pageIndex, out confidence, out circleCount); 
 
             if (DebugText != null)
             {
                 DebugText.text = pageIndex.ToString(); //  matcher.Circles.Count.ToString();
             }
 
-            print("Image: " + CurrentTexture.width + "x" + CurrentTexture.height + ", Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Confidence: " + confidence); 
+            print("Image: " + CurrentTexture.width + "x" + CurrentTexture.height + ", Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Circle Count: " + circleCount + ", Confidence: " + confidence); 
         }
         catch (Exception ex)
         {
