@@ -98,7 +98,9 @@
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
+     <Compile Include="Assets\Resetable.cs" />
      <Compile Include="Assets\RightSWIMbigfish.cs" />
+     <Compile Include="Assets\ShapeWalk.cs" />
      <Compile Include="Assets\TouchScript\Examples\Camera\Scripts\CameraController.cs" />
      <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Board.cs" />
      <Compile Include="Assets\TouchScript\Examples\Checkers\Scripts\Exclusive.cs" />
