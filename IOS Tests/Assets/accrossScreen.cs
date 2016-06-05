@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets;
 
-public class accrossScreen : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+public class accrossScreen : Resetable
+{
 	// Update is called once per frame
 	void Update () {
 
@@ -17,6 +13,4 @@ public class accrossScreen : MonoBehaviour {
 			transform.Translate(15, 0, 0);
 		}
 	}
-
-
 }

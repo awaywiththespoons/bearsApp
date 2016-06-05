@@ -1,13 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets;
 
-public class backAccrossScreen : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+public class backAccrossScreen : Resetable
+{
 	// Update is called once per frame
 	void Update () {
 

@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets;
 
-public class RightSWIMbigfish : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
-	}
+public class RightSWIMbigfish : Resetable
+{
 	
 	// Update is called once per frame
 	void Update () {

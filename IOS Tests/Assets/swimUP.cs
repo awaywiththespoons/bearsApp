@@ -1,20 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets;
 
-	public class swimUP : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	
-	}
-		
-		
+public class swimUP : Resetable
+{
 	// Update is called once per frame
 	void Update () {
 
-		transform.Translate(Vector3.up * Time.deltaTime, Camera.main.transform);
-
-	
+		transform.Translate(Vector3.up * Time.deltaTime, Camera.main.transform);	
 	}
 }

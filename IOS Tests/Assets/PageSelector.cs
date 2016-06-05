@@ -53,7 +53,8 @@ public class PageSelector : MonoBehaviour {
 
         foreach (Page other in pages.Values)
         {
-            other.gameObject.SetActive(other.PageNumber == pageNumber); 
+            other.gameObject.SetActive(other.PageNumber == pageNumber);
+            other.ResetAnimations(); 
         }
 
         //if (resetTime == true)
