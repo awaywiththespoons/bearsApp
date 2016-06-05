@@ -188,6 +188,7 @@ public class PageSelector : MonoBehaviour {
             SelectPage(9);
         }
 
+        // @becca this is the page timeout (in the time span)
         if (lastPageChange < DateTime.Now.Subtract(new TimeSpan(0, 1, 0)))
         {
             if (activePage >= 6)
