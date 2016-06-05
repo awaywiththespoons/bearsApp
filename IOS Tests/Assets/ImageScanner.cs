@@ -371,7 +371,11 @@ public class ImageScanner : MonoBehaviour
     WebCamTexture webCamTexture;
     byte[] colorBytes = new byte[0];
     int captureOctave = 0;
-       
+
+    int lastMatch = -1;
+    int matchFrames = 0;
+    float accumulativeConfidence = 0; 
+      
     //byte[] tempColorBytes = new byte[0];
 
     [SerializeField]
@@ -547,9 +551,21 @@ public class ImageScanner : MonoBehaviour
 
                 print("Image: " + CurrentTexture.width + "x" + CurrentTexture.height + ", Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Circle Count: " + circleCount + ", Confidence: " + confidence);
 
-                if (confidence > 0.3)
+                if (lastMatch != pageIndex)
                 {
-                    pageSelector.SelectPage(pageIndex); 
+                    lastMatch = pageIndex;
+                    matchFrames = 0;
+                    accumulativeConfidence = confidence;
+                }
+                else
+                {
+                    matchFrames++;
+                    accumulativeConfidence += confidence;
+
+                    if (matchFrames > 4 && accumulativeConfidence / matchFrames > 0.5)
+                    {
+                        pageSelector.SelectPage(pageIndex);
+                    }
                 }
             }
         }
