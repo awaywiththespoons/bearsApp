@@ -90,10 +90,13 @@
      <None Include="Assets\TouchScript\license.txt" />
      <None Include="Assets\Puppet2D\Shaders\VertColor.shader" />
      <None Include="Assets\Puppet2D\Shaders\unlitTransparentDouble.shader" />
+     <None Include="Assets\Libraries\AForge.Math.xml" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyDepthTest.shader" />
+     <None Include="Assets\Libraries\AForge.Imaging.xml" />
      <None Include="Assets\TouchScript\Shaders\DebugNoDepthTest.shader" />
      <None Include="Assets\TouchScript\Shaders\DebugMultiplyNoDepthTest.shader" />
      <None Include="Assets\TouchScript\Examples\_misc\Shaders\UnlitColor.shader" />
+     <None Include="Assets\Libraries\AForge.xml" />
      <None Include="Assets\TouchScript\Examples\_misc\Shaders\BorderDiffuse.shader" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
