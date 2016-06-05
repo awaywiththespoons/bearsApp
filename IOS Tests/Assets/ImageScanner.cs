@@ -518,7 +518,7 @@ public class ImageScanner : MonoBehaviour
                 DebugText.text = pageIndex.ToString(); //  matcher.Circles.Count.ToString();
             }
 
-            print("Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Confidence: " + confidence); 
+            print("Image: " + CurrentTexture.width + "x" + CurrentTexture.height + ", Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Confidence: " + confidence); 
         }
         catch (Exception ex)
         {
