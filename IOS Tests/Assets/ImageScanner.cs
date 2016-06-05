@@ -580,7 +580,7 @@ public class ImageScanner : MonoBehaviour
 
                 if (lowConfidenceFrames > 10)
                 {
-                    pageSelector.SelectPage(0);
+                    pageSelector.SelectPage(7);
                 }
             }
         }
