@@ -16,7 +16,7 @@ public class PageSelector : MonoBehaviour {
 
     public void SelectPage(int pageNumber)
     {
-        bool resetTime = true; 
+        //bool resetTime = true; 
         Page page;
 
         if (pages.TryGetValue(pageNumber, out page) == false)
@@ -32,14 +32,14 @@ public class PageSelector : MonoBehaviour {
 
         if (pageNumber != 0 && pageNumber != 6)
         {
-            if (CheckForEndOfStory() == true)
+            //if (CheckForEndOfStory() == true)
+            //{
+                //pageNumber = 6;
+                //resetTime = false; 
+            //}
+            //else
             {
-                pageNumber = activePage;
-                resetTime = false; 
-            }
-            else
-            {
-                pageHistory.Add(pageNumber);
+                //pageHistory.Add(pageNumber);
             }
         }
         else
@@ -56,7 +56,7 @@ public class PageSelector : MonoBehaviour {
             other.gameObject.SetActive(other.PageNumber == pageNumber); 
         }
 
-        if (resetTime == true)
+        //if (resetTime == true)
         {
             lastPageChange = DateTime.Now;
         }
