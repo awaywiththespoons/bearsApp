@@ -56,6 +56,7 @@ public class ImageScanner : MonoBehaviour
 
         public Matcher()
         {
+
             //matchTemplates.Add(new MatchTemplate("Tree", 1,
             //    new int[] {
             //        1, 1, 1,
@@ -69,13 +70,6 @@ public class ImageScanner : MonoBehaviour
                     1, 1, 0,
                     0, 0, 1
                 }));
-
-            //matchTemplates.Add(new MatchTemplate("Tree", 1,
-            //    new int[] {
-            //        0, 1, 1,
-            //        1, 1, 1,
-            //        0, 0, 1
-            //    }));
 
             matchTemplates.Add(new MatchTemplate("Weed", 2,
                 new int[] {
@@ -334,8 +328,8 @@ public class ImageScanner : MonoBehaviour
                     BlobCounter blobCounter = new BlobCounter();
 
                     float minSize = (23f / 352f) * width; 
-                    //float maxSize = (58f / 352f) * width;
-                    float maxSize = (70f / 352f) * width;
+                   // float maxSize = (58f / 352f) * width;
+					float maxSize = (70f / 352f) * width;
 
                     blobCounter.FilterBlobs = true;
                     blobCounter.MinHeight = (int)minSize;
