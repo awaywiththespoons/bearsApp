@@ -56,12 +56,12 @@ public class ImageScanner : MonoBehaviour
 
         public Matcher()
         {
-            matchTemplates.Add(new MatchTemplate("Tree", 1,
-                new int[] {
-                    1, 1, 1,
-                    1, 1, 0,
-                    0, 0, 1
-                }));
+            //matchTemplates.Add(new MatchTemplate("Tree", 1,
+            //    new int[] {
+            //        1, 1, 1,
+            //        1, 1, 0,
+            //        0, 0, 1
+            //    }));
 
             matchTemplates.Add(new MatchTemplate("Tree", 1,
                 new int[] {
@@ -120,7 +120,7 @@ public class ImageScanner : MonoBehaviour
 
             matchTemplates.Add(new MatchTemplate("Stalk", 5,
                 new int[] {
-                    1, 1, 1,
+                    1, 1, 0,
                     1, 1, 1,
                     0, 1, 1
                 }));
@@ -334,7 +334,8 @@ public class ImageScanner : MonoBehaviour
                     BlobCounter blobCounter = new BlobCounter();
 
                     float minSize = (23f / 352f) * width; 
-                    float maxSize = (58f / 352f) * width;
+                    //float maxSize = (58f / 352f) * width;
+                    float maxSize = (70f / 352f) * width;
 
                     blobCounter.FilterBlobs = true;
                     blobCounter.MinHeight = (int)minSize;
@@ -374,7 +375,9 @@ public class ImageScanner : MonoBehaviour
 
     WebCamTexture webCamTexture;
     byte[] colorBytes = new byte[0];
-    byte[] tempColorBytes = new byte[0];
+    int captureOctave = 0;
+       
+    //byte[] tempColorBytes = new byte[0];
 
     [SerializeField]
     public bool UseWebCam = true;
@@ -461,7 +464,7 @@ public class ImageScanner : MonoBehaviour
                 if (colorBytes.Length != TestImage.width * TestImage.height)
                 {
                     colorBytes = new byte[TestImage.width * TestImage.height];
-                    tempColorBytes = new byte[colorBytes.Length]; 
+                    //tempColorBytes = new byte[colorBytes.Length]; 
                 }
 
                 Color32[] colorData = TestImage.GetPixels32();
@@ -487,7 +490,7 @@ public class ImageScanner : MonoBehaviour
                 if (colorBytes.Length != webCamTexture.width * webCamTexture.height)
                 {
                     colorBytes = new byte[webCamTexture.width * webCamTexture.height];
-                    tempColorBytes = new byte[colorBytes.Length];
+                    //tempColorBytes = new byte[colorBytes.Length];
                 }
 
                 Color32[] colorData = webCamTexture.GetPixels32();
@@ -504,37 +507,49 @@ public class ImageScanner : MonoBehaviour
 
             //public void TryResolvePage(out string name, out int pageIndex, out float confidence)
 
-            matcher.Circles.Clear(); 
-
             int pageIndex = -1;
 
-            Array.Copy(colorBytes, tempColorBytes, colorBytes.Length); 
-            imageScanner.Match(0, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
-            matcher.AddCircles(imageScanner); 
-            //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
-
-            Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
-            imageScanner.Match(50, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
-            //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
-            matcher.AddCircles(imageScanner);
-
-            Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
-            imageScanner.Match(100, CurrentTexture.width, CurrentTexture.height, tempColorBytes); // handle.AddrOfPinnedObject());
-            //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
-            matcher.AddCircles(imageScanner);
-
-            string name;
-            float confidence;
-            int circleCount; 
-
-            matcher.TryResolvePage(out name, out pageIndex, out confidence, out circleCount); 
-
-            if (DebugText != null)
+            if (captureOctave == 0)
             {
-                DebugText.text = pageIndex.ToString(); //  matcher.Circles.Count.ToString();
+                matcher.Circles.Clear();
+
+                //Array.Copy(colorBytes, tempColorBytes, colorBytes.Length); 
+                imageScanner.Match(0, CurrentTexture.width, CurrentTexture.height, colorBytes); // handle.AddrOfPinnedObject());
+                matcher.AddCircles(imageScanner);
+                //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
+            }
+            else if (captureOctave == 1)
+            {
+                //Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
+                imageScanner.Match(50, CurrentTexture.width, CurrentTexture.height, colorBytes); // handle.AddrOfPinnedObject());
+                //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
+                matcher.AddCircles(imageScanner);
+            }
+            else if (captureOctave == 2)
+            {
+                //Array.Copy(colorBytes, tempColorBytes, colorBytes.Length);
+                imageScanner.Match(100, CurrentTexture.width, CurrentTexture.height, colorBytes); // handle.AddrOfPinnedObject());
+                //countMax = Mathf.Max(countMax, imageScanner.Circles.Count);
+                matcher.AddCircles(imageScanner);
             }
 
-            print("Image: " + CurrentTexture.width + "x" + CurrentTexture.height + ", Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Circle Count: " + circleCount + ", Confidence: " + confidence); 
+            captureOctave = (captureOctave + 1) % 3;
+
+            if (captureOctave == 0)
+            {
+                string name;
+                float confidence;
+                int circleCount;
+
+                matcher.TryResolvePage(out name, out pageIndex, out confidence, out circleCount);
+
+                if (DebugText != null)
+                {
+                    DebugText.text = pageIndex.ToString(); //  matcher.Circles.Count.ToString();
+                }
+
+                print("Image: " + CurrentTexture.width + "x" + CurrentTexture.height + ", Page name: " + name + ", Page index: " + pageIndex.ToString() + ", Circle Count: " + circleCount + ", Confidence: " + confidence);
+            }
         }
         catch (Exception ex)
         {
