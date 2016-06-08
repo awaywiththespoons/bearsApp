@@ -1,8 +1,8 @@
-﻿<Properties StartupItem="IOS Tests.CSharp.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/ImageScanner.cs">
     <Files>
-      <File FileName="Assets/ImageScanner.cs" Line="118" Column="28" />
+      <File FileName="Assets/ImageScanner.cs" Line="1" Column="1" />
       <File FileName="Assets/PageSelector.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
